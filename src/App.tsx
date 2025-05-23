@@ -28,7 +28,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
-import Education from "./pages/Experiences";
+import Experience from "./pages/Experiences";
 import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
 import Certifications from "./pages/Certifications";
@@ -158,9 +158,9 @@ function NavigationContent() {
               <span>Projects</span>
             </Link>
             <Link
-              to="/education"
+              to="/experiences"
               className={`transition-colors ${
-                isActive("/education")
+                isActive("/experiences")
                   ? "text-purple-400"
                   : "text-gray-300 hover:text-purple-400"
               } flex items-center gap-2`}
@@ -258,16 +258,16 @@ function NavigationContent() {
             <span>Blog</span>
           </Link>
           <Link
-            to="/education"
+            to="/experiences"
             className={`flex items-center gap-2 px-3 py-2 transition-colors ${
-              isActive("/education")
+              isActive("/experiences")
                 ? "text-purple-400"
                 : "text-gray-300 hover:text-purple-400"
             }`}
             onClick={() => setIsMenuOpen(false)}
           >
             <GraduationCap size={20} />
-            <span>Education</span>
+            <span>Experience</span>
           </Link>
           <Link
             to="/certifications"
@@ -361,7 +361,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/education" element={<Education />} />
+            <Route path="/experiences" element={<Experience />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/contact" element={<Contact />} />

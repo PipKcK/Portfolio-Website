@@ -2,7 +2,7 @@ import React from 'react';
 import { GraduationCap, Award, BookOpen } from 'lucide-react';
 import { Briefcase } from 'lucide-react';
 
-function Education() {
+function Experience() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-bold mb-12 text-center">Professional Experiences</h1>
@@ -92,4 +92,4 @@ function Education() {
   );
 }
 
-export default Education;
+export default Experience;
