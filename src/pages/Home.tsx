@@ -200,7 +200,7 @@ function Home() {
 
   return (
     <div>
-      <section className="relative h-[600px] overflow-hidden mb-20">
+      <section className="relative h-[600px] overflow-hidden mb-16">
         <div className="absolute inset-0">
           <img
             src="\assets\hero-image\hero-image9.avif"
@@ -252,7 +252,7 @@ function Home() {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <section className="mb-20">
+        <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">About Me</h2>
           <div className="bg-gray-800 rounded-lg p-8">
             <p className="text-gray-300 leading-relaxed mb-6">
@@ -267,7 +267,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="mb-20">
+        <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skill, index) => (

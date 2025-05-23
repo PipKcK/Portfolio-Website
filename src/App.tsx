@@ -48,7 +48,7 @@ function NavigationContent() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIsAppsOpen(false);
-    }, 500);
+    }, 200);
   };
 
   useEffect(() => {
@@ -86,10 +86,9 @@ function NavigationContent() {
             {/* Apps Dropdown */}
             <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
               <button
-                onClick={() => {
-                  if (timeoutRef.current) clearTimeout(timeoutRef.current);
-                  setIsAppsOpen(prev => !prev);
-                }}
+              onClick={() => {
+                if (isAppsOpen) setIsAppsOpen(false);
+              }}
                 className="flex items-center space-x-1 text-gray-300 hover:text-purple-400 transition-colors"
               >
                 Apps
