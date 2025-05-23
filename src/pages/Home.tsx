@@ -214,7 +214,7 @@ function Home() {
           <div className="max-w-2xl">
             <div className="mb-16">
               <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text leading-[1.2] !leading-[1.2] py-2 inline-block">
-                Ujjwal Barnwal
+                Ujjwal Baranwal
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-gray-300 mb-8">
