@@ -85,7 +85,13 @@ function NavigationContent() {
 
             {/* Apps Dropdown */}
             <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <button className="flex items-center space-x-1 text-gray-300 hover:text-purple-400 transition-colors">
+              <button
+                onClick={() => {
+                  if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                  setIsAppsOpen(prev => !prev);
+                }}
+                className="flex items-center space-x-1 text-gray-300 hover:text-purple-400 transition-colors"
+              >
                 Apps
                 <ChevronDown
                   size={16}
@@ -234,6 +240,7 @@ function NavigationContent() {
                 ? "text-purple-400"
                 : "text-gray-300 hover:text-purple-400"
             }`}
+            onClick={() => setIsMenuOpen(false)}
           >
             <FolderOpenDot size={20} />
             <span>Projects</span>
@@ -245,6 +252,7 @@ function NavigationContent() {
                 ? "text-purple-400"
                 : "text-gray-300 hover:text-purple-400"
             }`}
+            onClick={() => setIsMenuOpen(false)}
           >
             <BookOpen size={20} />
             <span>Blog</span>
@@ -256,6 +264,7 @@ function NavigationContent() {
                 ? "text-purple-400"
                 : "text-gray-300 hover:text-purple-400"
             }`}
+            onClick={() => setIsMenuOpen(false)}
           >
             <GraduationCap size={20} />
             <span>Education</span>
@@ -267,6 +276,7 @@ function NavigationContent() {
                 ? "text-purple-400"
                 : "text-gray-300 hover:text-purple-400"
             }`}
+            onClick={() => setIsMenuOpen(false)}
           >
             <Award size={20} />
             <span>Certifications</span>
@@ -278,6 +288,7 @@ function NavigationContent() {
                 ? "text-purple-400"
                 : "text-gray-300 hover:text-purple-400"
             }`}
+            onClick={() => setIsMenuOpen(false)}
           >
             <ScrollText size={20} />
             <span>Resume</span>
@@ -289,11 +300,12 @@ function NavigationContent() {
                 ? "text-purple-400"
                 : "text-gray-300 hover:text-purple-400"
             }`}
+            onClick={() => setIsMenuOpen(false)}
           >
             <Phone size={20} />
             <span>Contact</span>
           </Link>
-          <div className="flex items-center space-x-4 px-3 py-2">
+          <div className="flex items-center bg-gray-800 rounded-lg space-x-4 px-3 py-2 w-fit">{/*flex items-center bg-gray-800 rounded-lg px-4 py-2 space-x-4*/}
             <a
               href="https://github.com/PipKcK"
               target="_blank"
