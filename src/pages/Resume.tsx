@@ -41,11 +41,11 @@ function Resume() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <h3 className="font-semibold mb-2">Core</h3>
-              <p className="text-gray-300">Django, Node.js, Laravel, .NET, MAUI, Android Studio, React Native, Wireshark, Ghidra, Burp Suite, ProDiscover, Autopsy, Volatility, scikit-learn, pandas, NumPy, Decision Trees, Ethereum, Hyperledger Fabric, MetaMask, web3.js, Salesforce, Splunk, Git, Docker, Azure DevOps</p>
+              <p className="text-gray-300">Django, Node.js, Laravel, .NET, MAUI, Android Studio, React, Vite, Node, Wireshark, Ghidra, Burp Suite, ProDiscover, Autopsy, Volatility, scikit-learn, pandas, NumPy, Decision Trees, Ethereum, Hyperledger Fabric, MetaMask, web3.js, Salesforce, Splunk, Git, Docker, Azure DevOps</p>
             </div>
             <div>
               <h3 className="font-semibold mb-2">Programming Languages</h3>
-              <p className="text-gray-300">Python, C, C++, C#, JavaScript, Java, Kotlin, Go, Solidity</p>
+              <p className="text-gray-300">Python, C, C++, C#, JavaScript, TypeScript, Java, Kotlin, Go, Solidity</p>
             </div>
             <div>
               <h3 className="font-semibold mb-2">Databases</h3>

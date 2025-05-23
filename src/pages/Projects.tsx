@@ -26,44 +26,51 @@ const pastProjects = [
     description: 'Blockchain-based system to track evidence lifecycle, enhancing traceability and integrity in forensic investigations.',
     tech: ['Solidity', 'Ethereum', 'web3.js'],
     github: 'https://github.com/PipKcK/Blockchain-Chain-of-Custody',
-    live: ''
+    live: '',
+    topic: 'Blockchain, Chain of Custody, Identity Management'
   },
   {
     title: 'Hyperledger Fabric: Supply Chain Smart Contract',
     description: 'Private blockchain using Hyperledger Fabric to track product lifecycle, manage ownership, and ensure transaction integrity.',
     tech: ['Go', 'Docker', 'Hyperledger Fabric'],
     github: 'https://github.com/PipKcK/Hyperledger-Fabric-Supply-Chain-Smart-Contract',
-    live: ''
+    live: '',
+    topic: 'Blockchain, Smart Contracts, Supply Chain'
   },
   {
     title: 'Logic Programming-Driven Robotic Warehouse Optimization',
     description: 'Warehouse automation system using logic programming for robot path planning, dynamic routing, and collision avoidance.',
     tech: ['ASP (Clingo)', 'Python', 'Grid Planning'],
     github: 'https://github.com/PipKcK/Automated-Warehouse-Scenario',
-    live: ''
+    live: '',
+    topic: 'Robotics, Logic Programming, Warehouse Automation'
   },
   {
     title: 'Traffic Accident Hotspot Detection Using Machine Learning',
     description: 'ML-based prediction system to detect accident-prone areas and evaluate severity using spatial and temporal features.',
     tech: ['scikit-learn', 'pandas', 'Random Forest'],
     github: 'https://github.com/PipKcK/Traffic-Accident-Hotspot-Detection',
-    live: ''
+    live: '',
+    topic: 'Machine Learning, Data Analysis, Model Evaluation'
   },
   {
     title: 'Context-Aware Health Monitoring App',
     description: 'Android app that tracks heart and respiratory rates using smartphone sensors and user feedback for health insights.',
     tech: ['Android Studio', 'Java', 'Sensor APIs'],
     github: 'https://github.com/PipKcK/Context-Monitoring-App?tab=readme-ov-file',
-    live: ''
+    live: '',
+    topic: 'Mobile App Development, Data Management, Data Collection'
   },
   {
     title: 'Distributed Media Streaming Analytics Dashboard',
     description: 'Streaming analytics dashboard with distributed data processing and content trend visualization using simulated datasets.',
     tech: ['Flask', 'CockroachDB', 'Streamlit'],
     github: 'https://github.com/PipKcK/streaming-data-simulation',
-    live: ''
+    live: '',
+    topic: 'Data Analytics, Distributed Systems, Data Visualization'
   }
 ];
+
 
 function Projects() {
   return (
@@ -137,6 +144,7 @@ function Projects() {
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-400 transition-colors">
                   {project.title}
                 </h3>
+                <p className="text-sm text-blue-200 italic mb-2">{project.topic}</p>
                 <p className="text-gray-400 mb-4 line-clamp-3">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (

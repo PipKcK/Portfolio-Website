@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Github, ExternalLink, Code, Database, Brain, Shield } from 'lucide-react';
+import { Github, ExternalLink, Code, Database, Brain, Shield, Globe, Palette, Bitcoin, Cloud } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const projects = [
@@ -57,14 +57,13 @@ const projects = [
     techColors: ['bg-green-200/30', 'bg-yellow-200/30', 'bg-cyan-200/30'],
     topic: 'Data Analytics, Distributed Systems, Data Visualization'
   }
-]
-;
+];
 
 const skills = [
   {
     category: 'Programming Languages',
     icon: <Code className="w-6 h-6 text-purple-400" />,
-    items: ['Python', 'C', 'C++', 'C#', 'JavaScript', 'Java', 'Kotlin', 'Go', 'Solidity']
+    items: ['Python', 'C', 'C++', 'C#', 'JavaScript', 'TypeScript', 'Java', 'Kotlin', 'Go']
   },
   {
     category: 'Databases',
@@ -72,16 +71,37 @@ const skills = [
     items: ['Apache Cassandra', 'Amazon DynamoDB', 'CockroachDB', 'MongoDB', 'PostgreSQL', 'Redis', 'Neo4j', 'Elasticsearch']
   },
   {
-    category: 'Machine Learning',
-    icon: <Brain className="w-6 h-6 text-purple-400" />,
-    items: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'NLTK', 'pandas', 'NumPy', 'Matplotlib', 'OpenCV']
+    category: 'Web & App Development',
+    icon: <Globe className="w-6 h-6 text-purple-400" />,
+    items: ['Django', 'Node.js', 'Laravel', '.NET', 'Vite', 'React', 'MAUI', 'Android Studio']
   },
   {
-    category: 'Security',
+    category: 'Frontend & UI',
+    icon: <Palette className="w-6 h-6 text-purple-400" />,
+    items: ['Tailwind', 'Vite', 'React', 'Figma', 'Next.js', 'Bootstrap']
+  },
+  {
+    category: 'Security & Forensics',
     icon: <Shield className="w-6 h-6 text-purple-400" />,
-    items: ['Wireshark', 'Nmap', 'Snort', 'Kali Linux', 'Burp Suite', 'Splunk', 'Metasploit', 'Ghidra']
+    items: ['Wireshark', 'Ghidra', 'Burp Suite', 'ProDiscover', 'Autopsy', 'Volatility']
+  },
+  {
+    category: 'Machine Learning & Data Science',
+    icon: <Brain className="w-6 h-6 text-purple-400" />,
+    items: ['scikit-learn', 'pandas', 'NumPy', 'Keras', 'TensorFlow', 'PyTorch', 'Seaborn']
+  },
+  {
+    category: 'Blockchain & Web3',
+    icon: <Bitcoin className="w-6 h-6 text-purple-400" />,
+    items: ['Ethereum', 'Hyperledger Fabric', 'MetaMask', ,'Hard Hat', 'Decentralized Identity (DID)', 'Verifyable Certificate (VC)', 'web3', 'Solidity']
+  },
+  {
+    category: 'DevOps & Cloud',
+    icon: <Cloud className="w-6 h-6 text-purple-400" />,
+    items: ['Git', 'Docker', 'Azure Cloud', 'Splunk', 'Salesforce']
   }
 ];
+
 
 const recommendations = [
   {
@@ -293,6 +313,7 @@ function Home() {
                 >
                   <div>
                     <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                    <p className="text-sm text-purple-300 italic mb-2">{project.topic}</p>
                     <p className="text-gray-400 mb-4 line-clamp-3">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tech.map((tech, i) => (
