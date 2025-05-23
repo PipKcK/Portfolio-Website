@@ -4,38 +4,61 @@ import { Link } from 'react-router-dom';
 
 const projects = [
   {
-    title: 'AI-Powered Code Assistant',
-    description: 'A machine learning model that helps developers write better code through intelligent suggestions and automated code review.',
-    tech: ['Python', 'TensorFlow', 'FastAPI'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    techColors: ['bg-blue-200/30', 'bg-orange-200/30', 'bg-green-200/30']
+    title: 'Blockchain Chain of Custody',
+    description: 'Blockchain-based system to track evidence lifecycle, enhancing traceability and integrity in forensic investigations.',
+    tech: ['Solidity', 'Ethereum', 'web3.js'],
+    github: 'https://github.com/PipKcK/Blockchain-Chain-of-Custody',
+    live: '',
+    techColors: ['bg-yellow-200/30', 'bg-indigo-200/30', 'bg-green-200/30'],
+    topic: 'Blockchain, Chain of Custody, Identity Management'
   },
   {
-    title: 'Distributed Systems Simulator',
-    description: 'Educational tool for visualizing and understanding distributed systems concepts and algorithms.',
-    tech: ['React', 'Node.js', 'WebSocket'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    techColors: ['bg-cyan-200/30', 'bg-green-200/30', 'bg-blue-200/30']
+    title: 'Hyperledger Fabric: Supply Chain Smart Contract',
+    description: 'Private blockchain using Hyperledger Fabric to track product lifecycle, manage ownership, and ensure transaction integrity.',
+    tech: ['Go', 'Docker', 'Hyperledger Fabric'],
+    github: 'https://github.com/PipKcK/Hyperledger-Fabric-Supply-Chain-Smart-Contract',
+    live: '',
+    techColors: ['bg-blue-200/30', 'bg-gray-200/30', 'bg-purple-200/30'],
+    topic: 'Blockchain, Smart Contracts, Supply Chain'
   },
   {
-    title: 'Quantum Computing Visualization',
-    description: 'Interactive web application for visualizing quantum computing concepts and circuits.',
-    tech: ['TypeScript', 'Three.js', 'WebGL'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    techColors: ['bg-blue-200/30', 'bg-purple-200/30', 'bg-red-200/30']
+    title: 'Logic Programming-Driven Robotic Warehouse Optimization',
+    description: 'Warehouse automation system using logic programming for robot path planning, dynamic routing, and collision avoidance.',
+    tech: ['ASP (Clingo)', 'Python', 'Grid Planning'],
+    github: 'https://github.com/PipKcK/Automated-Warehouse-Scenario',
+    live: '',
+    techColors: ['bg-orange-200/30', 'bg-yellow-200/30', 'bg-gray-300/30'],
+    topic: 'Robotics, Logic Programming, Warehouse Automation'
   },
   {
-    title: 'Blockchain Analytics Platform',
-    description: 'Real-time analytics and visualization platform for blockchain transactions and smart contracts.',
-    tech: ['Solidity', 'React', 'Web3.js'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    techColors: ['bg-yellow-200/30', 'bg-cyan-200/30', 'bg-blue-200/30']
+    title: 'Traffic Accident Hotspot Detection Using Machine Learning',
+    description: 'ML-based prediction system to detect accident-prone areas and evaluate severity using spatial and temporal features.',
+    tech: ['scikit-learn', 'pandas', 'Random Forest'],
+    github: 'https://github.com/PipKcK/Traffic-Accident-Hotspot-Detection',
+    live: '',
+    techColors: ['bg-red-200/30', 'bg-green-200/30', 'bg-blue-200/30'],
+    topic: 'Machine Learning, Data Analysis, Model Evaluation'
+  },
+  {
+    title: 'Context-Aware Health Monitoring App',
+    description: 'Android app that tracks heart and respiratory rates using smartphone sensors and user feedback for health insights.',
+    tech: ['Android Studio', 'Java', 'Sensor APIs'],
+    github: 'https://github.com/PipKcK/Context-Monitoring-App?tab=readme-ov-file',
+    live: '',
+    techColors: ['bg-purple-200/30', 'bg-orange-200/30', 'bg-pink-200/30'],
+    topic: 'Mobile App Development, Data Management, Data Collection'
+  },
+  {
+    title: 'Distributed Media Streaming Analytics Dashboard',
+    description: 'Streaming analytics dashboard with distributed data processing and content trend visualization using simulated datasets.',
+    tech: ['Flask', 'CockroachDB', 'Streamlit'],
+    github: 'https://github.com/PipKcK/streaming-data-simulation',
+    live: '',
+    techColors: ['bg-green-200/30', 'bg-yellow-200/30', 'bg-cyan-200/30'],
+    topic: 'Data Analytics, Distributed Systems, Data Visualization'
   }
-];
+]
+;
 
 const skills = [
   {
