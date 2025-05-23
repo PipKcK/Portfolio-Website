@@ -148,7 +148,7 @@ function NavigationContent() {
             <a href="https://www.linkedin.com/in/ujjwal-baranwal-asu/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-purple-400 transition-colors">
               <Linkedin size={20} />
             </a>
-            <a href="mailto:your.email@example.com" className="text-gray-300 hover:text-purple-400 transition-colors">
+            <a href="mailto:ujjwalb.official@gmail.com" className="text-gray-300 hover:text-purple-400 transition-colors">
               <Mail size={20} />
             </a>
           </div>
