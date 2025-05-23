@@ -43,12 +43,12 @@ function NavigationContent() {
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setIsAppsOpen(true);
+    //setIsAppsOpen(true);
   };
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIsAppsOpen(false);
-    }, 200);
+    }, 250);
   };
 
   useEffect(() => {
@@ -88,6 +88,7 @@ function NavigationContent() {
               <button
               onClick={() => {
                 if (isAppsOpen) setIsAppsOpen(false);
+                else setIsAppsOpen(true);
               }}
                 className="flex items-center space-x-1 text-gray-300 hover:text-purple-400 transition-colors"
               >
