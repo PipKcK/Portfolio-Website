@@ -52,7 +52,7 @@ function Contact() {
   };
 
   const handleScheduleMeeting = () => {
-    window.open('https://calendly.com/your-calendly-link', '_blank');
+    window.open('https://calendly.com/ujjwalb-official/30min', '_blank');
   };
 
   return (
