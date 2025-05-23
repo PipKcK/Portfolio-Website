@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Github, Linkedin, Mail, Menu, X, Home as HomeIcon, Phone, FileDown, ScrollText, BookOpen, GraduationCap, Award, FolderOpenDot } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, X, Home as HomeIcon, Phone, FileDown, ScrollText, BookOpen, GraduationCap, Award, FolderOpenDot, PaperClip } from 'lucide-react';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Blog from './pages/Blog';

@@ -40,20 +40,52 @@ function Resume() {
           <h2 className="text-2xl font-bold mb-4 text-purple-400">Technical Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h3 className="font-semibold mb-2">Core</h3>
-              <p className="text-gray-300">Django, Node.js, Laravel, .NET, MAUI, Android Studio, React, Vite, Node, Wireshark, Ghidra, Burp Suite, ProDiscover, Autopsy, Volatility, scikit-learn, pandas, NumPy, Decision Trees, Ethereum, Hyperledger Fabric, MetaMask, web3.js, Salesforce, Splunk, Git, Docker, Azure DevOps</p>
-            </div>
-            <div>
               <h3 className="font-semibold mb-2">Programming Languages</h3>
-              <p className="text-gray-300">Python, C, C++, C#, JavaScript, TypeScript, Java, Kotlin, Go, Solidity</p>
+              <p className="text-gray-300">
+                Python, C, C++, C#, JavaScript, TypeScript, Java, Kotlin, Go
+              </p>
             </div>
             <div>
               <h3 className="font-semibold mb-2">Databases</h3>
               <p className="text-gray-300">Apache Cassandra, Amazon DynamoDB, CockroachDB, MongoDB, PostgreSQL, Redis, Neo4j, Elasticsearch</p>
             </div>
             <div>
-              <h3 className="font-semibold mb-2">Certifications</h3>
-              <p className="text-gray-300">CompTIA Security+</p>
+              <h3 className="font-semibold mb-2">Web & App Development</h3>
+              <p className="text-gray-300">Django, Node.js, Laravel, .NET, Vite, React, MAUI, Android Studio</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Frontend & UI</h3>
+              <p className="text-gray-300">Tailwind, Vite, React, Figma, Next.js, Bootstrap</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Security & Forensics</h3>
+              <p className='text-gray-300'>Wireshark, Ghidra, Burp Suite, ProDiscover, Autopsy, Volatility</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Machine Learning & Data Science</h3>
+              <p className='text-gray-300'>scikit-learn, pandas, NumPy, Keras, TensorFlow, PyTorch, Seaborn</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Blockchain & Web3</h3>
+              <p className='text-gray-300'>Ethereum, Hyperledger Fabric, MetaMask, Hard Hat, Decentralized Identity (DID), Verifiable Certificate (VC), web3, Solidity</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">DevOps & Cloud</h3>
+              <p className='text-gray-300'>Git, Docker, Azure Cloud, Splunk, Salesforce</p>
+            </div>
+          </div>
+        </section>
+
+        <hr className="border-t-4 border-gray-200/20 my-8" />
+
+        {/* Certification section */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4 text-purple-400">Certifications</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-gray-800 rounded-lg p-4">
+              <h3 className="font-semibold mb-2">CompTIA Security+</h3>
+              <p className="text-gray-400">Credential ID: 1234567890</p>
+              <p className="text-gray-400">Issued: Jan 2024</p>
             </div>
           </div>
         </section>
@@ -141,27 +173,25 @@ function Resume() {
           <div className="space-y-6 text-gray-300">
 
             <div>
-              <h3 className="font-semibold">Sales Performance Analysis</h3>
-              <ul className="list-disc list-inside">
-                <li>Developed an interactive Power BI dashboard to analyze sales trends, ROI, and performance across multiple channels</li>
-                <li>Designed a dynamic executive PowerBI report showcasing total sales, revenue distribution, and key performance indicators</li>
-                <li>Built visualizations to compare online, social media, store, and outlet sales, aiding competitive strategy planning</li>
-                <li>Integrated sentiment analysis and regional market share insights to identify growth opportunities</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold">Blockchain Chain of Custody</h3>
+              <div className="flex justify-between items-start mb-2 relative">
+                <h3 className="text-lg font-semibold">Blockchain Chain of Custody</h3>
+                <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
+                <span className="text-gray-400">Spring 2024</span>
+              </div>
               <ul className="list-disc list-inside">
                 <li>Developed a blockchain-based Chain of Custody to track evidence from discovery to case resolution</li>
-                <li>Designed and implemented a blockchain that records multiple classes and evidence items, enhancing traceability and integrity in forensics investigation</li>
-                <li>Generated functionalities for checking out and checking in evidence items by authorized parties, improving the transparency of evidence status</li>
-                <li>Implemented a verification feature to detect any unauthorized modifications to the blockchain, ensuring the security and legality of the evidence handling process</li>
+                <li>Deviced the Blockchain to record multiple classes & evidence items, enhancing traceability and integrity in forensics investigation</li>
+                <li>Generated functionalities for checking in/out evidence items by authorized parties, improving the transparency of evidence status</li>
+                <li>Implemented a verification feature to detect any unauthorized modifications to the blockchain, ensuring the security and legality</li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-semibold">Hyperledger Fabric: Supply Chain Smart Contract</h3>
+              <div className="flex justify-between items-start mb-2 relative">
+                <h3 className="text-lg font-semibold">Hyperledger Fabric: Supply Chain Smart Contract</h3>
+                <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
+                <span className="text-gray-400">Spring 2025</span>
+              </div>
               <ul className="list-disc list-inside">
                 <li>Built and deployed a private blockchain network using Hyperledger Fabric to track product lifecycle in a supply chain</li>
                 <li>Implemented chaincode in Go to manage product creation, ownership transfer, and updates</li>
@@ -171,7 +201,11 @@ function Resume() {
             </div>
 
             <div>
-              <h3 className="font-semibold">Logic Programming-Driven Robotic Warehouse Optimization</h3>
+              <div className="flex justify-between items-start mb-2 relative">
+                <h3 className="text-lg font-semibold">Logic Programming-Driven Robotic Warehouse Optimization</h3>
+                <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
+                <span className="text-gray-400">Spring 2025</span>
+              </div>
               <ul className="list-disc list-inside">
                 <li>Designed a warehouse automation system using LP-driven robots to enhance logistics and minimize human intervention</li>
                 <li>Developed grid-based movement planning and collision-avoidance algorithms for autonomous shelf transport</li>
@@ -181,7 +215,11 @@ function Resume() {
             </div>
 
             <div>
-              <h3 className="font-semibold">Traffic Accident Hotspot Detection Using Machine Learning</h3>
+              <div className="flex justify-between items-start mb-2 relative">
+                <h3 className="text-lg font-semibold">Traffic Accident Hotspot Detection Using Machine Learning</h3>
+                <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
+                <span className="text-gray-400">Spring 2025</span>
+              </div>
               <ul className="list-disc list-inside">
                 <li>Built a predictive system to identify traffic accident hotspots and evaluate accident severity through ML models</li>
                 <li>Created a full data mining pipeline with preprocessing, feature engineering, and model evaluation</li>
@@ -191,7 +229,11 @@ function Resume() {
             </div>
 
             <div>
-              <h3 className="font-semibold">Context-Aware Health Monitoring App</h3>
+              <div className="flex justify-between items-start mb-2 relative">
+                <h3 className="text-lg font-semibold">Context-Aware Health Monitoring App</h3>
+                <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
+                <span className="text-gray-400">Fall 2024</span>
+              </div>
               <ul className="list-disc list-inside">
                 <li>Developed an Android app that monitors heart and respiratory rates using smartphone sensors and user feedback</li>
                 <li>Used back camera with flash and accelerometer/orientation sensors for real-time vital tracking</li>
@@ -201,7 +243,11 @@ function Resume() {
             </div>
 
             <div>
-              <h3 className="font-semibold">Distributed Media Streaming Analytics Dashboard</h3>
+              <div className="flex justify-between items-start mb-2 relative">
+                <h3 className="text-lg font-semibold">Distributed Media Streaming Analytics Dashboard</h3>
+                <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
+                <span className="text-gray-400">Fall 2024</span>
+              </div>
               <ul className="list-disc list-inside">
                 <li>Engineered a distributed dashboard to analyze content trends and user behavior for streaming services</li>
                 <li>Leveraged CockroachDB and AWS-backed Flask APIs for distributed data routing and storage</li>
