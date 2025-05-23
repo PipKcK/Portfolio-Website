@@ -79,17 +79,17 @@ function NavigationContent() {
             <div className="flex items-center bg-gray-800 rounded-lg px-4 py-2 space-x-4">
               <Link 
                 to="/contact" 
-                className={`transition-colors ${isActive('/contact') ? 'text-purple-400' : 'text-gray-300 hover:text-purple-400'}`}
+                className={`transition-colors ${isActive('/contact') ? 'text-purple-400' : 'text-gray-300 hover:text-purple-400'}`} 
               >
                 <Phone size={20} />
               </Link>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-purple-400 transition-colors">
+              <a href="https://github.com/PipKcK" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-purple-400 transition-colors">
                 <Github size={20} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-purple-400 transition-colors">
+              <a href="https://www.linkedin.com/in/ujjwal-baranwal-asu/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-purple-400 transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:your.email@example.com" className="text-gray-300 hover:text-purple-400 transition-colors">
+              <a href="mailto:ujjwalb.official@gmail.com" className="text-gray-300 hover:text-purple-400 transition-colors">
                 <Mail size={20} />
               </a>
             </div>
@@ -142,10 +142,10 @@ function NavigationContent() {
             <span>Contact</span>
           </Link>
           <div className="flex items-center space-x-4 px-3 py-2">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-purple-400 transition-colors">
+            <a href="https://github.com/PipKcK" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-purple-400 transition-colors">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-purple-400 transition-colors">
+            <a href="https://www.linkedin.com/in/ujjwal-baranwal-asu/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-purple-400 transition-colors">
               <Linkedin size={20} />
             </a>
             <a href="mailto:your.email@example.com" className="text-gray-300 hover:text-purple-400 transition-colors">
@@ -202,7 +202,7 @@ function App() {
                 <span>Contact Me</span>
               </Link>
               <a
-                href="../assets/UjjwalBaranwal-Resume.pdf"
+                href="/assets/UjjwalBaranwal-Resume.pdf"
                 download
                 className="flex items-center space-x-2 bg-purple-600/20 hover:bg-purple-600/30 text-purple-400 px-4 py-2 rounded-lg transition-colors duration-300"
               >

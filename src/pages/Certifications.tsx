@@ -85,9 +85,8 @@ function Certifications() {
             Currently pursuing additional certifications in:
           </p>
           <ul className="list-disc list-inside text-gray-400 space-y-2">
-            <li>Certified Ethical Hacker (CEH)</li>
-            <li>Offensive Security Certified Professional (OSCP)</li>
-            <li>Certified Information Systems Security Professional (CISSP)</li>
+            <li>Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900)</li>
+            <li>Microsoft Certified: Azure Security Engineer Associate (AZ-500)</li>
           </ul>
         </div>
       </div>

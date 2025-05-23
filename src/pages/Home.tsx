@@ -64,22 +64,22 @@ const skills = [
   {
     category: 'Programming Languages',
     icon: <Code className="w-6 h-6 text-purple-400" />,
-    items: ['Python', 'C/C++', 'C#', 'JavaScript', 'Java']
+    items: ['Python', 'C', 'C++', 'C#', 'JavaScript', 'Java', 'Kotlin', 'Go', 'Solidity']
   },
   {
     category: 'Databases',
     icon: <Database className="w-6 h-6 text-purple-400" />,
-    items: ['PostgreSQL', 'MongoDB', 'Redis', 'Neo4j']
+    items: ['Apache Cassandra', 'Amazon DynamoDB', 'CockroachDB', 'MongoDB', 'PostgreSQL', 'Redis', 'Neo4j', 'Elasticsearch']
   },
   {
     category: 'Machine Learning',
     icon: <Brain className="w-6 h-6 text-purple-400" />,
-    items: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'NLTK']
+    items: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'NLTK', 'pandas', 'NumPy', 'Matplotlib', 'OpenCV']
   },
   {
     category: 'Security',
     icon: <Shield className="w-6 h-6 text-purple-400" />,
-    items: ['Wireshark', 'Nmap', 'Snort', 'Kali Linux', 'Burp Suite']
+    items: ['Wireshark', 'Nmap', 'Snort', 'Kali Linux', 'Burp Suite', 'Splunk', 'Metasploit', 'Ghidra']
   }
 ];
 
@@ -183,7 +183,7 @@ function Home() {
       <section className="relative h-[600px] overflow-hidden mb-20">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2070"
+            src="\assets\hero-image\hero-image9.avif"
             alt="Digital Network"
             className="w-full h-full object-cover opacity-60"
           />
@@ -236,13 +236,13 @@ function Home() {
           <h2 className="text-3xl font-bold mb-8">About Me</h2>
           <div className="bg-gray-800 rounded-lg p-8">
             <p className="text-gray-300 leading-relaxed mb-6">
-              I am a Master's Student in Computer Science specializing in Cyber-Security at Arizona State University. With a strong foundation in computer science fundamentals and a passion for recent cutting-edge research, I strive to create innovative solutions that make a positive impact.
+              I am a recent graduate with a Master’s degree in Computer Science specializing in Cyber-Security from Arizona State University. With a strong foundation in computer science fundamentals and a passion for cutting-edge research, I strive to create innovative solutions that make a positive impact.
             </p>
             <p className="text-gray-300 leading-relaxed mb-6">
-              My academic interests include data & information security, artificial intelligence, distributed computing, and quantum computing. I have project experience working on various projects ranging from AI-powered applications to secure communications systems, and I'm always eager to learn and apply new technologies.
+              My academic interests include data & information security, artificial intelligence, distributed computing, and quantum computing. I have project experience ranging from AI-powered applications to secure communications systems, and I'm always eager to learn and apply new technologies.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              Outside of academics, I am passionate about open-source projects and partake in hackathons. I believe in the growing need for secure applications to protect one's PII data and am committed to perform in the interest of the community and the people by continuous learning and growing in this ever-evolving field.
+              Outside of academics, I am passionate about open-source projects and partake in hackathons. I believe in the growing need for secure applications to protect personal data and am committed to contributing to the community through continuous learning and development in this ever-evolving field.
             </p>
           </div>
         </section>
@@ -252,9 +252,9 @@ function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skill, index) => (
               <div key={index} className="bg-gray-800 rounded-lg p-6">
-                <div className="flex items-center mb-4">
+                <div className="flex flex-col items-center mb-4">
                   {skill.icon}
-                  <h3 className="text-xl font-semibold ml-2">{skill.category}</h3>
+                  <h3 className="text-xl font-semibold mt-2 text-center">{skill.category}</h3>
                 </div>
                 <ul className="space-y-2">
                   {skill.items.map((item, i) => (

@@ -75,7 +75,13 @@ function Contact() {
               <Mail className="text-purple-400" size={24} />
               <div>
                 <h3 className="font-semibold">Email</h3>
-                <p className="text-gray-400">asu.ujjwal@gmail.com</p>
+                <button 
+                  onClick={() => window.location.href = "mailto:ujjwalb.official@gmail.com"} 
+                  className="text-purple-400 hover:text-purple-300 transition-colors"
+                >
+                  ujjwalb.official@gmail.com
+                </button>
+
               </div>
             </div>
 
@@ -92,11 +98,18 @@ function Contact() {
               </div>
             </div>
 
+
             <div className="flex items-center space-x-4">
               <Phone className="text-purple-400" size={24} />
               <div>
                 <h3 className="font-semibold">Phone</h3>
-                <p className="text-gray-400">+1 (602) 775-7995</p>
+                {/*<p className="text-gray-400">+1 (602) 775-7995</p>*/}
+                <button 
+                  onClick={() => window.location.href = "sms:+16027757995"} 
+                  className="text-purple-400 hover:text-purple-300 transition-colors"
+                >
+                  +1 (602) 775-7995
+                </button>
               </div>
             </div>
 

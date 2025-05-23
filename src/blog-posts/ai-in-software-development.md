@@ -2,7 +2,7 @@
 title: The Future of AI in Software Development
 date: March 5, 2024
 readTime: 6 min read
-image: https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&q=80&w=800
+image: \assets\blog-images\ai-in-software-development-img.avif
 tags: ["AI", "Software Development", "Future Tech"]
 excerpt: Analyzing the impact of artificial intelligence on the future of software development.
 ---

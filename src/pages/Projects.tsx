@@ -6,7 +6,7 @@ const currentProjects = [
     title: 'AI-Powered Code Assistant',
     description: 'A sophisticated machine learning model that helps developers write better code through intelligent suggestions and automated code review. Features include real-time code analysis, security vulnerability detection, and performance optimization recommendations.',
     tech: ['Python', 'TensorFlow', 'FastAPI', 'Docker'],
-    github: 'https://github.com',
+    github: 'https://github.com/PipKcK',
     live: 'https://example.com',
     status: 'In Development'
   },
@@ -14,7 +14,7 @@ const currentProjects = [
     title: 'Distributed Systems Simulator',
     description: 'An educational tool for visualizing and understanding distributed systems concepts and algorithms. Includes interactive simulations of consensus protocols, fault tolerance mechanisms, and network partitioning scenarios.',
     tech: ['React', 'Node.js', 'WebSocket', 'D3.js'],
-    github: 'https://github.com',
+    github: 'https://github.com/PipKcK',
     live: 'https://example.com',
     status: 'Beta Testing'
   }
