@@ -235,6 +235,7 @@ function NavigationContent() {
                 : "text-gray-300 hover:text-purple-400"
             }`}
           >
+            <FolderOpenDot size={20} />
             <span>Projects</span>
           </Link>
           <Link
