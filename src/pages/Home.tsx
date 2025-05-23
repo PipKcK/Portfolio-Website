@@ -63,17 +63,17 @@ const skills = [
   {
     category: 'Programming Languages',
     icon: <Code className="w-6 h-6 text-purple-400" />,
-    items: ['Python', 'C', 'C++', 'C#', 'JavaScript', 'TypeScript', 'Java', 'Kotlin', 'Go']
+    items: ['Python', 'C/C++', 'C#', 'JavaScript/TypeScript', 'Java', 'Go']
   },
   {
     category: 'Databases',
     icon: <Database className="w-6 h-6 text-purple-400" />,
-    items: ['Apache Cassandra', 'Amazon DynamoDB', 'CockroachDB', 'MongoDB', 'PostgreSQL', 'Redis', 'Neo4j', 'Elasticsearch']
+    items: ['Apache Cassandra', 'Elasticsearch', 'CockroachDB', 'MongoDB', 'PostgreSQL', 'Neo4j']
   },
   {
     category: 'Web & App Development',
     icon: <Globe className="w-6 h-6 text-purple-400" />,
-    items: ['Django', 'Node.js', 'Laravel', '.NET', 'Vite', 'React', 'MAUI', 'Android Studio']
+    items: ['Django', 'Node.js', 'Laravel', '.NET', 'Vite', 'Android Studio']
   },
   {
     category: 'Frontend & UI',
@@ -86,14 +86,14 @@ const skills = [
     items: ['Wireshark', 'Ghidra', 'Burp Suite', 'ProDiscover', 'Autopsy', 'Volatility']
   },
   {
-    category: 'Machine Learning & Data Science',
+    category: 'ML & Data Science',
     icon: <Brain className="w-6 h-6 text-purple-400" />,
-    items: ['scikit-learn', 'pandas', 'NumPy', 'Keras', 'TensorFlow', 'PyTorch', 'Seaborn']
+    items: ['scikit-learn', 'NumPy', 'Keras', 'TensorFlow', 'PyTorch', 'Seaborn']
   },
   {
     category: 'Blockchain & Web3',
     icon: <Bitcoin className="w-6 h-6 text-purple-400" />,
-    items: ['Ethereum', 'Hyperledger Fabric', 'MetaMask', ,'Hard Hat', 'Decentralized Identity (DID)', 'Verifyable Certificate (VC)', 'web3', 'Solidity']
+    items: ['Ethereum', 'Hyperledger Fabric', 'Hardhat', 'Decentralized Identity (DID)', 'Verifyable Certificate (VC)', 'Solidity']
   },
   {
     category: 'DevOps & Cloud',

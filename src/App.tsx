@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Github, Linkedin, Mail, Menu, X, Home as HomeIcon, Phone, FileDown, ScrollText, BookOpen, GraduationCap, Award, FolderOpenDot, PaperClip } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, X, Home as HomeIcon, Phone, FileDown, ScrollText, BookOpen, GraduationCap, Award, FolderOpenDot, Briefcase } from 'lucide-react';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Blog from './pages/Blog';
@@ -46,6 +46,7 @@ function NavigationContent() {
               <FolderOpenDot size={20}/>
               <span>Projects</span>
             </Link>
+
             <Link 
               to="/blog" 
               className={`transition-colors ${isActive('/blog') ? 'text-purple-400' : 'text-gray-300 hover:text-purple-400'} flex items-center gap-2`}
@@ -57,8 +58,8 @@ function NavigationContent() {
               to="/education" 
               className={`transition-colors ${isActive('/education') ? 'text-purple-400' : 'text-gray-300 hover:text-purple-400'} flex items-center gap-2`}
             >
-              <GraduationCap size={20} />
-              <span>Education</span>
+              <Briefcase size={20} />
+              <span>Experience</span>
             </Link>
             <Link 
               to="/certifications" 
