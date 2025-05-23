@@ -299,7 +299,7 @@ function Home() {
             onMouseLeave={handleMouseUp}
             onMouseMove={handleMouseMove}
           >
-            <div className="flex gap-8 min-w-max">
+            <div className="flex gap-8 min-w-max py-6">
               {[...projects, ...projects].map((project, index) => (
                 <div 
                   key={index}
