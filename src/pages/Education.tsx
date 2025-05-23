@@ -17,7 +17,7 @@ function Education() {
             <h3 className="text-xl font-semibold mb-2">Master of Science in Computer Science (Cybersecurity)</h3>
             <p className="text-gray-400 mb-1">Arizona State University (ASU) - Ira Fulton School of Engineering</p>
             <p className="text-gray-400 mb-1">2024 - Present</p>
-            <p className="text-gray-400">GPA: 4.0/4.0</p>
+            <p className="text-gray-400">GPA: 3.94/4.0</p>
           </div>
         </section>
 
