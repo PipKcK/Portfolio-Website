@@ -3,7 +3,7 @@ import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
 const currentProjects = [
   {
-    title: 'Home Lab - Netowrk Mapper',
+    title: 'Home Lab - Network Mapper',
     description: 'A comprehensive Python-based network scanning and monitoring tool designed for home lab environments providing device discovery, real-time network monitoring, and a web-based security dashboard.',
     tech: ['Python', 'tshark', 'scapy', 'flask', 'nmap'],
     github: 'https://github.com/PipKcK/Home-Lab-Network-Mapper',
