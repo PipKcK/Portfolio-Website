@@ -3,12 +3,13 @@ import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
 const currentProjects = [
   {
-    title: 'AI-Powered Code Assistant',
-    description: 'A sophisticated machine learning model that helps developers write better code through intelligent suggestions and automated code review. Features include real-time code analysis, security vulnerability detection, and performance optimization recommendations.',
-    tech: ['Python', 'TensorFlow', 'FastAPI', 'Docker'],
-    github: 'https://github.com/PipKcK',
-    live: '',
-    status: 'In Development'
+    title: 'Home Lab - Netowrk Mapper',
+    description: 'A comprehensive Python-based network scanning and monitoring tool designed for home lab environments providing device discovery, real-time network monitoring, and a web-based security dashboard.',
+    tech: ['Python', 'tshark', 'scapy', 'flask', 'nmap'],
+    github: 'https://github.com/PipKcK/Home-Lab-Network-Mapper',
+    live: 'https://github.com/PipKcK/Home-Lab-Network-Mapper/blob/main/readme.md',
+    image: '/assets/project-images/home-lab-network-mapper.png',
+    status: 'Stable V.1 Released'
   },
   {
     title: 'Distributed Systems Simulator',
@@ -16,6 +17,7 @@ const currentProjects = [
     tech: ['React', 'Node.js', 'WebSocket', 'D3.js'],
     github: 'https://github.com/PipKcK',
     live: '',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
     status: 'In Development'
   }
 ];
@@ -85,6 +87,13 @@ function Projects() {
               className="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300"
             >
               <div className="aspect-w-16 aspect-h-9">
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-64 object-cover"
+                  />
+                )}
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
