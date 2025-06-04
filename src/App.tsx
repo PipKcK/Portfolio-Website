@@ -23,11 +23,13 @@ import {
   Briefcase,
   Globe,
   ChevronDown,
+  MessageCircleMore
 } from "lucide-react";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Chat from './pages/Chat';
 import Experience from "./pages/Experiences";
 import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
@@ -111,6 +113,13 @@ function NavigationContent() {
                   >
                     <BookOpen size={16} className="inline-block mr-2" />
                     Blog
+                  </Link>
+                  <Link
+                    to="/chat"
+                    className="block px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-purple-400 transition-colors"
+                    onClick={() => setIsAppsOpen(false)}>
+                      <MessageCircleMore size={16} className="inline-block mr-2" />
+                      ChatINC
                   </Link>
                   <div className="px-4 py-2 text-sm text-gray-400 border-y border-gray-700 text-red-400">
                     Coming Soon
@@ -361,6 +370,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/chat" element={<Chat />} />
             <Route path="/experiences" element={<Experience />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/resume" element={<Resume />} />
