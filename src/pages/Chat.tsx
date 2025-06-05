@@ -12,17 +12,59 @@ function Chat() {
   const [messages, setMessages] = useState<
     { sender: string; text: string; timestamp: string }[]
   >([]);
-  const API_URI = "http://localhost:5000/api/chat";
+  const API_URI = "http://localhost:3000/api/chat";
+  const Start_Server_URI = "http://localhost:3000/start";
+  const Stop_Server_URI = "http://localhost:3000/stop";
   const bottomRef = useRef<HTMLDivElement>(null);
   const [isTyping, setIsTyping] = useState(false);
-  
+  const isServerBusy = serverStatus === 'Turning On' || serverStatus === 'Turning Off';
+
+  /*useEffect(() => {
+    const timer = setTimeout(() => {
+      checkServerStatus();
+    }, 5000); // 2000 milliseconds = 2 seconds
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);*/
+
   useEffect(() => {
-    checkServerStatus();
-  }, []);
+    const handleUnload = async () => {
+      if (serverStatus === 'Online') {
+        try {
+          setServerStatus('Offline');
+          await navigator.sendBeacon(Stop_Server_URI);
+        } catch (err) {
+          console.error("Failed to stop server on unload", err);
+        }
+      }
+    };
+
+    window.addEventListener('beforeunload', handleUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleUnload);
+    };
+  }, [serverStatus]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+
+  const toggleServer = async () => {
+    try {
+      if (serverStatus === 'Online') {
+        setServerStatus('Turning Off');
+        await fetch(Stop_Server_URI, { method: 'POST' });
+      } else if (serverStatus === 'Offline') {
+        setServerStatus('Turning On');
+        await fetch(Start_Server_URI, { method: 'POST' });
+      }
+      setTimeout(() => checkServerStatus(), 1500);
+    } catch (error) {
+      console.error("Server control failed:", error);
+      setServerStatus('Offline');
+    }
+  };
+
 
   const checkServerStatus = async () => {
     try {
@@ -47,6 +89,28 @@ function Chat() {
     }
   };
 
+  const getPowerButtonColor = () => {
+    switch (serverStatus) {
+      case 'Online':
+      case 'Turning Off':
+        return 'text-red-500 hover:text-red-600';
+      case 'Offline':
+      case 'Turning On':
+      default:
+        return 'text-green-500 hover:text-green-600';
+    }
+  };
+
+  const getStatusDotColor = () => {
+    switch (serverStatus) {
+      case 'Online':
+        return 'text-green-500';
+      case 'Offline':
+        return 'text-red-500';
+      default:
+        return 'text-yellow-500'; // Turning On / Off
+    }
+  };
 
   const sendMessage = async () => {
     if (!inputText.trim()) return;
@@ -169,22 +233,29 @@ function Chat() {
         </div>
 
         <div className="bg-gray-800 rounded-lg h-[calc(100vh-16rem)] flex flex-col">
+          <div className="pb-2 pt-1 opacity-50">
+
+          </div>
           {/* Chat messages will go here */}
           <div className="flex-1 p-6 overflow-y-auto">
             {/* Messages container */}
             <div className="space-y-4">
               {messages.map((msg, index) => (
                 <div key={index} className={`text-sm ${msg.sender === 'You' ? 'text-right' : 'text-left'}`}>
-                  <p className={`rounded-lg p-2 inline-block max-w-[80%] break-words ${
-                      msg.sender === 'You' 
-                        ? 'bg-gray-700 text-gray-400 self-end' 
-                        : 'bg-gray-700 text-gray-400 self-start'
+                  <div className={`rounded-lg p-2 inline-block max-w-[80%] break-words ${
+                    msg.sender === 'You' 
+                      ? 'bg-gray-700 text-gray-400 self-end' 
+                      : 'bg-gray-700 text-gray-400 self-start'
                     }`}>
-                    <strong className={msg.sender === 'You' ? 'text-purple-400' : 'text-purple-400'}>
-                      {msg.sender}:
-                    </strong>{' '}
-                    {msg.text}
-                  </p>
+                    <div className="p-1 border-b border-gray-500 mb-1 pb-1">
+                      <p className="pb-1">
+                        <strong className={msg.sender === 'You' ? 'text-purple-400' : 'text-purple-400'}>
+                        {msg.sender}
+                        </strong>
+                      </p>
+                    </div>
+                    <p className="p-2 text-justify"> {msg.text} </p>
+                  </div>
                   <span className="ml-2 text-xs text-gray-400 block">
                     {msg.timestamp}
                   </span>
@@ -234,31 +305,39 @@ function Chat() {
                     target.style.height = `${Math.min(target.scrollHeight, 120)}px`;
                   }}
                 />
-                <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors duration-300 flex items-center h-[40px]" onClick={sendMessage}>
+                <button
+                  className={`px-6 py-2 rounded-lg transition-colors duration-300 flex items-center h-[40px] ${
+                    serverStatus === 'Online'
+                      ? 'bg-purple-600 hover:bg-purple-700 text-white'
+                      : 'bg-gray-700 text-gray-400 cursor-not-allowed'
+                  }`}
+                  onClick={sendMessage}
+                  disabled={serverStatus !== 'Online'}
+                  title={serverStatus !== 'Online' ? 'ChatINC is not online' : ''}
+                >
                   <Send size={18} className="mr-2" />
                   Send
                 </button>
+
               </div>
               
               {/* Server status moved inside chat area */}
               <div className="flex items-center text-sm text-gray-400">
-                <button>
+                <button onClick={toggleServer} disabled={isServerBusy}>
                   <Power
                     size={16}
-                    className="mr-2 cursor-pointer text-gray-400 hover:text-gray-300 transition-colors"
-                    onClick={checkServerStatus}
+                    className={`mr-2 cursor-pointer transition-colors ${getPowerButtonColor()}`}
                   />
                 </button>
                 <span className="mr-2">Status:</span>
                 <Circle
                   size={8}
-                  className={`mr-2 ${
-                    serverStatus === 'Online' ? 'text-green-500' : 'text-red-500'
-                  }`}
+                  className={`mr-2 ${getStatusDotColor()}`}
                   fill="currentColor"
                 />
-                <span>{serverStatus}{' '}
-                  <span className="text-gray-500">({serverIntake[Intake]})</span>
+                <span>
+                  {serverStatus}{' '}
+                  <span className="text-gray-500">({serverIntake[Intake+1]})</span>
                 </span>
               </div>
             </div>
