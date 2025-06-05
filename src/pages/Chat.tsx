@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Info, Circle, Send, Power } from 'lucide-react';
 
 function Chat() {
@@ -6,7 +6,95 @@ function Chat() {
   const [isChecked, setIsChecked] = useState(false);
   const [serverStatus, setServerStatus] = useState('Offline');
   const [inputText, setInputText] = useState('');
-  const serverIntake = ["Tunnel", "Azure", "None", "Unknown"];
+  const serverIntake = ["Unknown", "Localhost", "Tunnel", "Azure", "None"];
+  const Intake = 0;
+  const [chatHistory, setChatHistory] = useState<string[]>([]);
+  const [messages, setMessages] = useState<
+    { sender: string; text: string; timestamp: string }[]
+  >([]);
+  const API_URI = "http://localhost:5000/api/chat";
+  const bottomRef = useRef<HTMLDivElement>(null);
+  const [isTyping, setIsTyping] = useState(false);
+  
+  useEffect(() => {
+    checkServerStatus();
+  }, []);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  const checkServerStatus = async () => {
+    try {
+      const res = await fetch(API_URI, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: "ping",
+          history: []
+        }),
+      });
+
+      if (res.ok) {
+        setServerStatus("Online");
+      } else {
+        setServerStatus("Offline");
+      }
+    } catch (error) {
+      setServerStatus("Offline");
+    }
+  };
+
+
+  const sendMessage = async () => {
+    if (!inputText.trim()) return;
+
+    const currentInput = inputText;
+    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    setInputText("");
+
+    // Add user message to UI
+    const newMessages = [...messages, { sender: 'You', text: currentInput, timestamp }];
+    setMessages(newMessages);
+
+    setIsTyping(true);
+
+    try {
+      const res = await fetch(API_URI, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: currentInput,
+          history: chatHistory
+        }),
+      });
+
+      const data = await res.json();
+      const botReply = data.response;
+      const updatedHistory = data.history;
+
+      // Update history and messages
+      setChatHistory(updatedHistory);
+      setMessages([...newMessages, {
+        sender: 'ChatINC',
+        text: botReply,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      }]);
+    } catch (error) {
+      setMessages([...newMessages, {
+         sender: 'ChatINC', 
+         text: 'Error contacting server.',
+         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
+      }]);
+    } finally {
+      setIsTyping(false);
+    }
+  };
 
   const suggestions = [
     "Hello",
@@ -26,7 +114,7 @@ function Chat() {
 
   if (!hasAcceptedDisclaimer) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900/50 p-4">
+      <div className="min-h-screen flex items-center justify-center bg-gray-900/25 p-4">
         <div className="max-w-2xl w-full bg-gray-800 rounded-lg p-8">
           <h1 className="text-2xl font-bold mb-6 text-center">Disclaimer</h1>
           <p className="text-gray-300 mb-8 leading-relaxed">
@@ -61,15 +149,15 @@ function Chat() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900/50 pt-20">
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="text-center mb-8">
+    <div className="min-h-auto bg-gray-900/25">
+      <div className="max-w-5xl mx-auto px-4 pt-6 pb-2">
+        <div className="text-center mb-4">
           <div className="flex items-center justify-center mb-2">
             <div className="relative inline-block">
               <h1 className="text-3xl font-bold">ChatINC</h1>
               <div className="absolute -top-1 -right-4 group">
                 <Info size={14} className="text-gray-400 cursor-help" />
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-64 p-4 bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 p-4 bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <p className="text-sm text-gray-300">
                     ChatINC is an AI-powered chatbot designed to provide information about India's culture, history, and current affairs.
                   </p>
@@ -77,18 +165,43 @@ function Chat() {
               </div>
             </div>
           </div>
-          <p className="text-gray-400">Chat with the India Constitution!</p>
+          <p className="text-gray-400">Chat with the Indian Constitution!</p>
         </div>
 
         <div className="bg-gray-800 rounded-lg h-[calc(100vh-16rem)] flex flex-col">
           {/* Chat messages will go here */}
           <div className="flex-1 p-6 overflow-y-auto">
             {/* Messages container */}
+            <div className="space-y-4">
+              {messages.map((msg, index) => (
+                <div key={index} className={`text-sm ${msg.sender === 'You' ? 'text-right' : 'text-left'}`}>
+                  <p className={`rounded-lg p-2 inline-block max-w-[80%] break-words ${
+                      msg.sender === 'You' 
+                        ? 'bg-gray-700 text-gray-400 self-end' 
+                        : 'bg-gray-700 text-gray-400 self-start'
+                    }`}>
+                    <strong className={msg.sender === 'You' ? 'text-purple-400' : 'text-purple-400'}>
+                      {msg.sender}:
+                    </strong>{' '}
+                    {msg.text}
+                  </p>
+                  <span className="ml-2 text-xs text-gray-400 block">
+                    {msg.timestamp}
+                  </span>
+                </div>
+              ))}
+              {isTyping && (
+                <div className="text-sm text-left text-gray-400">
+                  <em>ChatINC is typing...</em>
+                </div>
+              )}
+              <div ref={bottomRef} />
+            </div>
           </div>
 
           {/* Suggestions */}
           {!inputText.trim() && (
-            <div className="px-6 pb-4">
+            <div className="px-6 pb-4 pt-2 opacity-50">
               <div className="flex flex-wrap gap-2">
                 {suggestions.map((suggestion, index) => (
                   <button
@@ -121,7 +234,7 @@ function Chat() {
                     target.style.height = `${Math.min(target.scrollHeight, 120)}px`;
                   }}
                 />
-                <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors duration-300 flex items-center h-[40px]">
+                <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors duration-300 flex items-center h-[40px]" onClick={sendMessage}>
                   <Send size={18} className="mr-2" />
                   Send
                 </button>
@@ -129,6 +242,13 @@ function Chat() {
               
               {/* Server status moved inside chat area */}
               <div className="flex items-center text-sm text-gray-400">
+                <button>
+                  <Power
+                    size={16}
+                    className="mr-2 cursor-pointer text-gray-400 hover:text-gray-300 transition-colors"
+                    onClick={checkServerStatus}
+                  />
+                </button>
                 <span className="mr-2">Status:</span>
                 <Circle
                   size={8}
@@ -138,17 +258,8 @@ function Chat() {
                   fill="currentColor"
                 />
                 <span>{serverStatus}{' '}
-                  <span className="text-gray-500">({serverIntake[2]})</span>
+                  <span className="text-gray-500">({serverIntake[Intake]})</span>
                 </span>
-                <div className=''>
-                  <button>
-                    <Power
-                      size={16}
-                      className="ml-2 cursor-pointer text-gray-400 hover:text-gray-300 transition-colors"
-                      onClick={() => setServerStatus(serverStatus === 'Online' ? 'Offline' : 'Online')}
-                    />
-                  </button>
-                </div>
               </div>
             </div>
           </div>
