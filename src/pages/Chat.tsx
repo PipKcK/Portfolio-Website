@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Info, Circle, Send, Power } from 'lucide-react';
 
 function Chat() {
@@ -20,23 +21,31 @@ function Chat() {
   const [isTyping, setIsTyping] = useState(false);
   const isServerBusy = serverStatus === 'Turning On' || serverStatus === 'Turning Off';
 
+  const location = useLocation();
+  // Cheap Fix :( 
   useEffect(() => {
-    const handleUnload = async () => {
-      if (serverStatus === 'Online') {
-        try {
-          setServerStatus('Offline');
-          await navigator.sendBeacon(Stop_Server_URI);
-        } catch (err) {
-          console.error("Failed to stop server on unload", err);
-        }
-      }
+    const logExit = () => {
+      console.log("User is leaving or refreshing the page.");
+      const success = navigator.sendBeacon(Stop_Server_URI);
+      console.log("sendBeacon called:", success);
     };
 
-    window.addEventListener('beforeunload', handleUnload);
+    window.addEventListener("beforeunload", logExit);
+    window.addEventListener("pagehide", logExit);
+
     return () => {
-      window.removeEventListener('beforeunload', handleUnload);
+      window.removeEventListener("beforeunload", logExit);
+      window.removeEventListener("pagehide", logExit);
     };
-  }, [serverStatus]);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      console.log("User navigated away from", location.pathname);
+      const success = navigator.sendBeacon(Stop_Server_URI);
+      console.log("sendBeacon called:", success);
+    };
+  }, [location]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
