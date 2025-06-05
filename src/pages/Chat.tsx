@@ -12,20 +12,13 @@ function Chat() {
   const [messages, setMessages] = useState<
     { sender: string; text: string; timestamp: string }[]
   >([]);
-  const API_URI = "http://localhost:3000/api/chat";
-  const Start_Server_URI = "http://localhost:3000/start";
-  const Stop_Server_URI = "http://localhost:3000/stop";
+  const API_URI = "https://chat.thisisujjwal.engineer/api/chat";
+  const Start_Server_URI = "https://chat.thisisujjwal.engineer/start";
+  const Stop_Server_URI  = "https://chat.thisisujjwal.engineer/stop";
+
   const bottomRef = useRef<HTMLDivElement>(null);
   const [isTyping, setIsTyping] = useState(false);
   const isServerBusy = serverStatus === 'Turning On' || serverStatus === 'Turning Off';
-
-  /*useEffect(() => {
-    const timer = setTimeout(() => {
-      checkServerStatus();
-    }, 5000); // 2000 milliseconds = 2 seconds
-
-    return () => clearTimeout(timer); // Cleanup timer on unmount
-  }, []);*/
 
   useEffect(() => {
     const handleUnload = async () => {
@@ -54,17 +47,17 @@ function Chat() {
       if (serverStatus === 'Online') {
         setServerStatus('Turning Off');
         await fetch(Stop_Server_URI, { method: 'POST' });
+        setServerStatus('Offline'); // don't ping when backend is down
       } else if (serverStatus === 'Offline') {
         setServerStatus('Turning On');
         await fetch(Start_Server_URI, { method: 'POST' });
+        setTimeout(() => checkServerStatus(), 1500); // ✅ only ping after start
       }
-      setTimeout(() => checkServerStatus(), 1500);
     } catch (error) {
       console.error("Server control failed:", error);
-      setServerStatus('Offline');
+      setServerStatus("Offline");
     }
   };
-
 
   const checkServerStatus = async () => {
     try {
@@ -307,18 +300,25 @@ function Chat() {
                 />
                 <button
                   className={`px-6 py-2 rounded-lg transition-colors duration-300 flex items-center h-[40px] ${
-                    serverStatus === 'Online'
-                      ? 'bg-purple-600 hover:bg-purple-700 text-white'
-                      : 'bg-gray-700 text-gray-400 cursor-not-allowed'
+                    isTyping
+                      ? 'bg-purple-300 text-gray-800 cursor-not-allowed'
+                      : serverStatus === 'Online'
+                        ? 'bg-purple-600 hover:bg-purple-700 text-white'
+                        : 'bg-gray-700 text-gray-400 cursor-not-allowed'
                   }`}
                   onClick={sendMessage}
-                  disabled={serverStatus !== 'Online'}
-                  title={serverStatus !== 'Online' ? 'ChatINC is not online' : ''}
+                  disabled={serverStatus !== 'Online' || isTyping}
+                  title={
+                    isTyping
+                      ? 'ChatINC is thinking...'
+                      : serverStatus !== 'Online'
+                        ? 'ChatINC is not online'
+                        : ''
+                  }
                 >
                   <Send size={18} className="mr-2" />
                   Send
                 </button>
-
               </div>
               
               {/* Server status moved inside chat area */}
