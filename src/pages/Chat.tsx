@@ -21,41 +21,55 @@ function Chat() {
   const [isTyping, setIsTyping] = useState(false);
   const isServerBusy = serverStatus === 'Turning On' || serverStatus === 'Turning Off';
 
-  const inactivityTimerRef = useRef<number | null>(null);
+  const inactivity5MinRef = useRef<number | null>(null);
+  const fixed10MinRef = useRef<number | null>(null);
 
   useEffect(() => {
+    // Resettable 5-minute inactivity timer
     const resetInactivityTimer = () => {
-      if (inactivityTimerRef.current !== null) {
-        clearTimeout(inactivityTimerRef.current);
+      if (inactivity5MinRef.current !== null) {
+        clearTimeout(inactivity5MinRef.current);
       }
 
-      inactivityTimerRef.current = window.setTimeout(() => {
+      inactivity5MinRef.current = window.setTimeout(() => {
         if (serverStatus === 'Online') {
-          console.log("Inactivity detected. Shutting down server...");
+          console.log("5 min inactivity - toggling server");
           toggleServer();
         }
-      }, 5 * 60 * 1000); // 5 minutes
+      }, 5 * 60 * 1000);
     };
 
-    // These events indicate user is active
-    const activityEvents = ['mousemove', 'keydown', 'click', 'scroll'];
+    // Fixed 10-minute timer (no reset)
+    if (fixed10MinRef.current === null) {
+      fixed10MinRef.current = window.setTimeout(() => {
+        if (serverStatus === 'Online') {
+          console.log("10 min elapsed - toggling server");
+          toggleServer();
+        }
+      }, 10 * 60 * 1000);
+    }
 
-    activityEvents.forEach(event =>
+    // Listen for activity
+    const activityEvents = ['mousemove', 'keydown', 'click', 'scroll'];
+    activityEvents.forEach((event) =>
       window.addEventListener(event, resetInactivityTimer)
     );
 
-    // Start the initial timer
-    resetInactivityTimer();
+    resetInactivityTimer(); // Start the inactivity timer
 
     return () => {
-      activityEvents.forEach(event =>
+      activityEvents.forEach((event) =>
         window.removeEventListener(event, resetInactivityTimer)
       );
-      if (inactivityTimerRef.current !== null) {
-        clearTimeout(inactivityTimerRef.current);
+      if (inactivity5MinRef.current !== null) {
+        clearTimeout(inactivity5MinRef.current);
+      }
+      if (fixed10MinRef.current !== null) {
+        clearTimeout(fixed10MinRef.current);
       }
     };
-  }, [serverStatus]); // Re-run this hook if serverStatus changes
+  }, [serverStatus]);
+
 
 
   const location = useLocation();
