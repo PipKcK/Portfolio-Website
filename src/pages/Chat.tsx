@@ -21,6 +21,43 @@ function Chat() {
   const [isTyping, setIsTyping] = useState(false);
   const isServerBusy = serverStatus === 'Turning On' || serverStatus === 'Turning Off';
 
+  const inactivityTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const resetInactivityTimer = () => {
+      if (inactivityTimerRef.current !== null) {
+        clearTimeout(inactivityTimerRef.current);
+      }
+
+      inactivityTimerRef.current = window.setTimeout(() => {
+        if (serverStatus === 'Online') {
+          console.log("Inactivity detected. Shutting down server...");
+          toggleServer();
+        }
+      }, 5 * 60 * 1000); // 5 minutes
+    };
+
+    // These events indicate user is active
+    const activityEvents = ['mousemove', 'keydown', 'click', 'scroll'];
+
+    activityEvents.forEach(event =>
+      window.addEventListener(event, resetInactivityTimer)
+    );
+
+    // Start the initial timer
+    resetInactivityTimer();
+
+    return () => {
+      activityEvents.forEach(event =>
+        window.removeEventListener(event, resetInactivityTimer)
+      );
+      if (inactivityTimerRef.current !== null) {
+        clearTimeout(inactivityTimerRef.current);
+      }
+    };
+  }, [serverStatus]); // Re-run this hook if serverStatus changes
+
+
   const location = useLocation();
   // Cheap Fix :( 
   useEffect(() => {
@@ -346,7 +383,7 @@ function Chat() {
                 />
                 <span>
                   {serverStatus}{' '}
-                  <span className="text-gray-500">({serverIntake[Intake+1]})</span>
+                  <span className="text-gray-500">({serverIntake[Intake+2]})</span>
                 </span>
               </div>
             </div>
