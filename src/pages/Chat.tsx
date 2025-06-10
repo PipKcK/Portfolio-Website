@@ -13,9 +13,11 @@ function Chat() {
   const [messages, setMessages] = useState<
     { sender: string; text: string; timestamp: string }[]
   >([]);
-  const API_URI = "https://chat.thisisujjwal.engineer/api/chat";
-  const Start_Server_URI = "https://chat.thisisujjwal.engineer/start";
-  const Stop_Server_URI  = "https://chat.thisisujjwal.engineer/stop";
+  const API_URI = "https://api.thisisujjwal.engineer/api/chat";
+  const Start_DC_BE_URI = "https://api.thisisujjwal.engineer/start/chatbot-backend-1";
+  const Start_DC_OL_URI  = "https://api.thisisujjwal.engineer/dc/stop/chatbot-ollama-1";
+  const Stop_DC_BE_URI = "https://api.thisisujjwal.engineer/dc/start/chatbot-backend-1";
+  const Stop_DC_OL_URI  = "https://api.thisisujjwal.engineer/dc/stop/chatbot-ollama-1";
 
   const bottomRef = useRef<HTMLDivElement>(null);
   const [isTyping, setIsTyping] = useState(false);
@@ -77,8 +79,9 @@ function Chat() {
   useEffect(() => {
     const logExit = () => {
       console.log("User is leaving or refreshing the page.");
-      const success = navigator.sendBeacon(Stop_Server_URI);
-      console.log("sendBeacon called:", success);
+      const success1 = navigator.sendBeacon(Stop_DC_BE_URI);
+      const success2 = navigator.sendBeacon(Stop_DC_OL_URI);
+      console.log("sendBeacon called:", success1, success2);
     };
 
     window.addEventListener("beforeunload", logExit);
@@ -93,8 +96,9 @@ function Chat() {
   useEffect(() => {
     return () => {
       console.log("User navigated away from", location.pathname);
-      const success = navigator.sendBeacon(Stop_Server_URI);
-      console.log("sendBeacon called:", success);
+      const success1 = navigator.sendBeacon(Stop_DC_BE_URI);
+      const success2 = navigator.sendBeacon(Stop_DC_OL_URI);
+      console.log("sendBeacon called:", success1, success2);
     };
   }, [location]);
 
@@ -106,11 +110,13 @@ function Chat() {
     try {
       if (serverStatus === 'Online') {
         setServerStatus('Turning Off');
-        await fetch(Stop_Server_URI, { method: 'POST' });
+        await fetch(Stop_DC_BE_URI, { method: 'POST' });
+        await fetch(Stop_DC_OL_URI, { method: 'POST' });
         setServerStatus('Offline'); // don't ping when backend is down
       } else if (serverStatus === 'Offline') {
         setServerStatus('Turning On');
-        await fetch(Start_Server_URI, { method: 'POST' });
+        await fetch(Start_DC_BE_URI, { method: 'POST' });
+        await fetch(Start_DC_OL_URI, { method: 'POST' });
         setTimeout(() => checkServerStatus(), 1500); // ✅ only ping after start
       }
     } catch (error) {
@@ -283,6 +289,7 @@ function Chat() {
             </div>
           </div>
           <p className="text-gray-400">Chat with the Indian Constitution!</p>
+          <p className="text-red-400">The Service is currently Offline</p>
         </div>
 
         <div className="bg-gray-800 rounded-lg h-[calc(100vh-16rem)] flex flex-col">
