@@ -289,7 +289,6 @@ function Chat() {
             </div>
           </div>
           <p className="text-gray-400">Chat with the Indian Constitution!</p>
-          <p className="text-red-400">The Service is currently Offline</p>
         </div>
 
         <div className="bg-gray-800 rounded-lg h-[calc(100vh-16rem)] flex flex-col">
