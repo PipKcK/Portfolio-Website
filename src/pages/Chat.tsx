@@ -13,7 +13,7 @@ function Chat() {
   const [messages, setMessages] = useState<
     { sender: string; text: string; timestamp: string }[]
   >([]);
-  const API_URI = "https://api.thisisujjwal.engineer/api/chat";
+  const API_URI = "https://api.thisisujjwal.engineer/api/chatinc";
   const Start_DC_BE_URI = "https://api.thisisujjwal.engineer/start/chatbot-backend-1";
   const Start_DC_OL_URI  = "https://api.thisisujjwal.engineer/dc/stop/chatbot-ollama-1";
   const Stop_DC_BE_URI = "https://api.thisisujjwal.engineer/dc/start/chatbot-backend-1";
