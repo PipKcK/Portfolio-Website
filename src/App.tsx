@@ -23,13 +23,16 @@ import {
   Briefcase,
   Globe,
   ChevronDown,
-  MessageCircleMore
+  MessageCircleMore,
+  Play,
+  Link2
 } from "lucide-react";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Chat from './pages/Chat';
+import SocialDownloader from './pages/SocialDownloader';
 import Experience from "./pages/Experiences";
 import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
@@ -121,6 +124,14 @@ function NavigationContent() {
                       <MessageCircleMore size={16} className="inline-block mr-2" />
                       ChatINC
                   </Link>
+                  <Link
+                    to="/social-downloader"
+                    className="block px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-purple-400 transition-colors"
+                    onClick={() => setIsAppsOpen(false)}
+                  >
+                    <Play size={16} className="inline-block mr-2" />
+                    Social Downloader
+                  </Link>
                   <div className="px-4 py-2 text-sm text-gray-400 border-y border-gray-700 text-red-400">
                     Coming Soon
                   </div>
@@ -129,14 +140,8 @@ function NavigationContent() {
                     className="block px-4 py-2 text-gray-300 hover:bg-gray-700 text-red-300 hover:text-red-400 transition-colors"
                     onClick={() => setIsAppsOpen(false)}
                   >
+                    <Link2 size={16} className="inline-block mr-2" />
                     URL Shortener
-                  </Link>
-                  <Link
-                    to="/social-downloader"
-                    className="block px-4 py-2 text-gray-300 hover:bg-gray-700 text-red-300 hover:text-red-400 transition-colors"
-                    onClick={() => setIsAppsOpen(false)}
-                  >
-                    Social Downloader
                   </Link>
                 </div>
               )}
@@ -371,6 +376,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/social-downloader" element={<SocialDownloader />} />
             <Route path="/experiences" element={<Experience />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/resume" element={<Resume />} />
