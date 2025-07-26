@@ -12,13 +12,13 @@ const currentProjects = [
     status: 'Stable V.1 Released'
   },
   {
-    title: 'Distributed Systems Simulator',
-    description: 'An educational tool for visualizing and understanding distributed systems concepts and algorithms. Includes interactive simulations of consensus protocols, fault tolerance mechanisms, and network partitioning scenarios.',
-    tech: ['React', 'Node.js', 'WebSocket', 'D3.js'],
-    github: 'https://github.com/PipKcK',
-    live: '',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
-    status: 'In Development'
+    title: 'ChatINC - AI Chatbot',
+    description: 'An AI-powered chatbot designed to assist users in understanding the Indian Constitution and navigating complex topics and queries with the help of a fine-tuned (LoRA) Mistral 7B Large Language Model through natural language conversation.',
+    tech: ['Python', 'Ollama', 'LoRA'],
+    github: 'https://www.thisisujjwal.engineer/chat',
+    live: 'https://www.thisisujjwal.engineer/chat',
+    image: '/assets/project-images/chatinc-ai-chatbot.png',
+    status: 'Live'
   }
 ];
 
