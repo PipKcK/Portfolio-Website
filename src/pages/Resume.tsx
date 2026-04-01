@@ -39,40 +39,49 @@ function Resume() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-4 text-purple-400">Technical Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
             <div>
               <h3 className="font-semibold mb-2">Programming Languages</h3>
               <p className="text-gray-300">
-                Python, C, C++, C#, JavaScript, TypeScript, Java, Kotlin, Go
+                Python, C, C#, JavaScript, Java, Kotlin, Dart, Go, Solidity, Rust, Powershell, Bash, SQL
               </p>
             </div>
+
             <div>
               <h3 className="font-semibold mb-2">Databases</h3>
-              <p className="text-gray-300">Apache Cassandra, Amazon DynamoDB, CockroachDB, MongoDB, PostgreSQL, Redis, Neo4j, Elasticsearch</p>
+              <p className="text-gray-300">
+                MongoDB, PostgreSQL, CockroachDB, Neo4j, Elasticsearch, Apache Cassandra, DynamoDB, Redis
+              </p>
             </div>
+
             <div>
               <h3 className="font-semibold mb-2">Web & App Development</h3>
-              <p className="text-gray-300">Django, Node.js, Laravel, .NET, Vite, React, MAUI, Android Studio</p>
+              <p className="text-gray-300">
+                Django, Laravel, Node.js, React, Tailwind, Vite, MAUI, Android Studio
+              </p>
             </div>
-            <div>
-              <h3 className="font-semibold mb-2">Frontend & UI</h3>
-              <p className="text-gray-300">Tailwind, Vite, React, Figma, Next.js, Bootstrap</p>
-            </div>
+
             <div>
               <h3 className="font-semibold mb-2">Security & Forensics</h3>
-              <p className='text-gray-300'>Wireshark, Ghidra, Burp Suite, ProDiscover, Autopsy, Volatility</p>
+              <p className="text-gray-300">
+                Wireshark, Metasploit, Burp Suite, Ghidra, ProDiscover, Autopsy, Volatility, SIEM, Splunk
+              </p>
             </div>
+
             <div>
-              <h3 className="font-semibold mb-2">Machine Learning & Data Science</h3>
-              <p className='text-gray-300'>scikit-learn, pandas, NumPy, Keras, TensorFlow, PyTorch, Seaborn</p>
+              <h3 className="font-semibold mb-2">Machine Learning & AI</h3>
+              <p className="text-gray-300">
+                scikit-learn, pandas, NumPy, PyTorch, TensorFlow, Transformers, OpenCV, Tesseract
+              </p>
             </div>
+
             <div>
-              <h3 className="font-semibold mb-2">Blockchain & Web3</h3>
-              <p className='text-gray-300'>Ethereum, Hyperledger Fabric, MetaMask, Hard Hat, Decentralized Identity (DID), Verifiable Certificate (VC), web3, Solidity</p>
+              <h3 className="font-semibold mb-2">Cloud & DevOps</h3>
+              <p className="text-gray-300">
+                Azure, AWS, AWS Lambda, Docker, Kubernetes, Terraform, Jenkins, Git, Linux
+              </p>
             </div>
-            <div>
-              <h3 className="font-semibold mb-2">DevOps & Cloud</h3>
-              <p className='text-gray-300'>Git, Docker, Azure Cloud, Splunk, Salesforce</p>
-            </div>
+
           </div>
         </section>
 
@@ -96,79 +105,116 @@ function Resume() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-4 text-purple-400">Experience</h2>
 
-          {/* Paqt Capstone */}
           <div className="mb-6">
             <div className="flex justify-between items-start mb-2 relative">
-              <h3 className="text-lg font-semibold">Student Developer (Capstone)</h3>
+              <h3 className="text-lg font-semibold">GenAI Developer</h3>
               <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
-              <span className="text-gray-400">Aug 2023 – May 2024</span>
+              <span className="text-gray-400"></span>
             </div>
-            <p className="text-gray-400 mb-2">Paqt, Toronto, Ontario</p>
+            <p className="text-gray-400 mb-2">Sayaam For All</p>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Integrated Google Calendar API for team management using Node.js & Laravel</li>
-              <li>Helped design document agreement templates using Node.js & ReactJS</li>
-            </ul>
-          </div>
-
-          {/* SIS Internships */}
-          <div className="mb-6">
-            <div className="flex justify-between items-start mb-2 relative">
-              <h3 className="text-lg font-semibold">Intern</h3>
-              <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
-              <span className="text-gray-400">May 2024 – Jun 2024</span>
-            </div>
-            <p className="text-gray-400 mb-2">SIS Group Enterprises, Delhi, India</p>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Built executive Power BI reports visualizing sales, revenue, and KPIs</li>
-              <li>Added sentiment analysis and regional insights for competitive planning</li>
+              <li>Developed AI powered response generation using Groq and Gemini APIs for user facing chatbot services</li>
+              <li>Enabled chatbot driven access to critical resources including shelters, food banks, and free healthcare information.</li>
+              <li>Deployed serverless AI solution using AWS Lambda and API Gateway for scalable and secure service delivery.</li>
             </ul>
           </div>
 
           <div className="mb-6">
             <div className="flex justify-between items-start mb-2 relative">
-              <h3 className="text-lg font-semibold">Intern</h3>
+              <h3 className="text-lg font-semibold">Full Stack Developer</h3>
               <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
-              <span className="text-gray-400">May 2023 – Jun 2023</span>
+              <span className="text-gray-400"></span>
             </div>
-            <p className="text-gray-400 mb-2">SIS Group Enterprises, Delhi, India</p>
+            <p className="text-gray-400 mb-2">OneCommunity Global</p>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Implemented file compression/encryption using RSA & DH key exchange</li>
-              <li>Designed secure file transmission with metadata and reconstruction</li>
+              <li>Reviewed 10+ pull requests weekly to ensure quality for the employee time management platform</li>
+              <li>Collaborated with team and managers to identify and resolve bugs in inactive website modules</li>
+              <li>Delivered instant hotfixes and new features based on urgent executive requests</li>
             </ul>
           </div>
 
-          {/* ASU TA and Peer Mentor */}
           <div className="mb-6">
             <div className="flex justify-between items-start mb-2 relative">
               <h3 className="text-lg font-semibold">Teaching Assistant (Network Security)</h3>
               <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
-              <span className="text-gray-400">Jan 2024 – May 2024</span>
+              <span className="text-gray-400"></span>
             </div>
             <p className="text-gray-400 mb-2">Arizona State University, Tempe, AZ</p>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Supported over 55 students on traffic analysis and network intrusion</li>
-              <li>Held weekly office hours for doubt resolution and assignment help</li>
+              <li>Partnered with teaching staff and professor to design course structure and material</li>
+              <li>Assisted over 55 students with coursework tasks on Traffic Analysis, Network Intrusion and Network Mapping</li>
             </ul>
           </div>
 
           <div className="mb-6">
             <div className="flex justify-between items-start mb-2 relative">
-              <h3 className="text-lg font-semibold">Fulton Peer Mentor</h3>
+              <h3 className="text-lg font-semibold">Student Developer</h3>
               <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
-              <span className="text-gray-400">Aug 2023 – May 2025</span>
+              <span className="text-gray-400"></span>
             </div>
-            <p className="text-gray-400 mb-2">Arizona State University, Tempe, AZ</p>
+            <p className="text-gray-400 mb-2">Paqt, Toronto, Ontario</p>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Mentored over 430 freshmen and hosted 20+ development events</li>
-              <li>Led peer collaborations to foster community engagement</li>
+              <li>Integrated Google Calendar API to Paqt for effective teams and time management</li>
+              <li>Assisted team in the addition of templates to programmatically create agreements for signing documents</li>
             </ul>
           </div>
+
+          <div className="mb-6">
+            <div className="flex justify-between items-start mb-2 relative">
+              <h3 className="text-lg font-semibold">App Developer</h3>
+              <div className="flex-grow mx-4 mt-3 border-t border-dotted border-gray-600/50"></div>
+              <span className="text-gray-400"></span>
+            </div>
+            <p className="text-gray-400 mb-2">SIS Group Enterprises</p>
+            <ul className="list-disc list-inside text-gray-300 space-y-1">
+              <li>Developed a real-time application tracking Android app, delivering a functional MVP on schedule</li>
+              <li>Converted 50+ Figma UI screens into a responsive and user-friendly mobile interface</li>
+              <li>Integrated backend server APIs to enable seamless data retrieval and real-time updates</li>
+            </ul>
+          </div>
+
         </section>
 
         <hr className="border-t-4 border-gray-200/20 my-8" />
 
         {/* Projects section */}
+
+        {/* Projects section */}
         <section>
+          <h2 className="text-2xl font-bold mb-4 text-purple-400">Projects</h2>
+          <div className="space-y-6 text-gray-300">
+
+            <div>
+              <h3 className="text-lg font-semibold">Inventory Tracker Microservice</h3>
+              <ul className="list-disc list-inside">
+                <li>Built a REST API for adding, updating, and querying product inventory in real time.</li>
+                <li>Integrated Redis as a caching layer, cutting response latency for frequent lookups.</li>
+                <li>Containerized the application with Docker for consistent development and deployment.</li>
+                <li>Configured a GitHub Actions pipeline to run Maven builds, unit tests, and automatic Docker image publishing.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold">AutoDoc Lightweight OCR Automation Tool</h3>
+              <ul className="list-disc list-inside">
+                <li>Built an OCR pipeline using OpenCV and Tesseract to extract structured text from invoices and receipts</li>
+                <li>Used a lightweight YOLO model to detect key fields such as dates, totals, and headers in document images</li>
+                <li>Trained a PyTorch classifier with feature extraction techniques to distinguish document types for automated routing</li>
+                <li>Evaluated detection, OCR quality, and classification performance using standard vision metrics in a modular Python workflow</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold">HomeLab Network Mapper</h3>
+              <ul className="list-disc list-inside">
+                <li>Captured 1,000+ packets/sec with Scapy and Snort, detecting 100% of simulated intrusion attempts in testing</li>
+                <li>Identified LAN devices with 95%+ OS accuracy for PCs and smartphones using open-ports fingerprinting</li>
+                <li>Built a Flask-SocketIO dashboard for live traffic stats, bandwidth tracking, and protocol distribution analysis</li>
+              </ul>
+            </div>
+
+          </div>
+
           <h2 className="text-2xl font-bold mb-4 text-purple-400">Projects</h2>
           <div className="space-y-6 text-gray-300">
 

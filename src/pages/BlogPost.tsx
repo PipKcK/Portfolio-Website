@@ -32,7 +32,7 @@ function BlogPost() {
         setError(null);
 
         // Get all markdown files
-        const postFiles = import.meta.glob('../blog-posts/*.md', { as: 'raw' });
+        const postFiles = import.meta.glob('../blog-posts/*.md', { query: '?raw', import: 'default' });
         
         // Try to load each post until we find the matching slug
         for (const [path, loader] of Object.entries(postFiles)) {

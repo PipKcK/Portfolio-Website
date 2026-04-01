@@ -21,7 +21,7 @@ function Blog() {
     const loadBlogPosts = async () => {
       try {
         // Dynamically import all .md files from the blog-posts directory
-        const postFiles = import.meta.glob('../blog-posts/*.md', { as: 'raw' });
+        const postFiles = import.meta.glob('../blog-posts/*.md', { query: '?raw', import: 'default'});
         
         const loadedPosts = await Promise.all(
           Object.entries(postFiles).map(async ([path, loader]) => {
